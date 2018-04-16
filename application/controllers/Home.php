@@ -12,25 +12,27 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-	
 		$data['content'] = 'pagina_iniziale';
 		$this->load->view('includes/template', $data);
 
 	}
 
 
-	public function faiPrenotazione() {
-
+	public function faiPrenotazione() 
+	{
+		$data['sale'] = $this->Sale_model->elenco_sale();
 		$data['content'] = 'inizia_prenotazione';
 		$this->load->view('includes/template', $data);		
 	}
 
-	public function modificaPrenotazione() {
+	public function modificaPrenotazione() 
+	{
 
 		
 	}
 
-	public function cancellaPrenotazione() {
+	public function cancellaPrenotazione() 
+	{
 
 		
 	}		

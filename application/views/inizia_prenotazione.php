@@ -5,30 +5,34 @@
    <div class="col-md-9 col-xs-12">
     <div class="x_panel">
     	<div class="x_content">
-     	<?php echo form_open('gestioneutenti/crea_nuovo_utente', array('class' => 'form-horizontal form-label-left')); ?>
-      <div class="form-group">
-      	<?php echo form_label('Nome', 'nome', array('class' => 'control-label col-md-1 col-sm-1 col-xs-12')); ?>
-       <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'nome', 'name' => 'nome', "required" => "required")); ?>
-       </div>
-      </div>
-     	<div class="ln_solid"></div>
-    			<?php 
-      		if(isset($messaggioerrore)) {
-      			echo '<div class="row">';
-        	echo '<div class="col-md-6 alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
-        	echo $messaggioerrore;
-        	echo validation_errors('<p class="error">');
-        	echo '</p></div></div>';
-      		} 
-    			?>
-      <div class="form-group">
-       <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-        	<?php echo form_submit('submit', 'Salva', array('class' => 'btn btn-success submit pull-right')); ?>
-									<?php echo anchor('home', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
-        	<?php echo form_close(); ?>
-      	</div>
-     	</div>
+    		<div class="table-responsive">
+
+							<!-- tabella con elenco sale -->
+	      <table id="datatable" class="table table-striped table-bordered jambo_table">
+	        <thead>
+	          <tr>
+	            <th>Sala</th>
+	            <th>Dipartimento</th>
+	            <th>Descrizione</th>
+	            <th>Numero Posti</th>
+	            <th></th>
+	          </tr>
+	        </thead>
+	        <tbody>        
+	          <?php if(isset($sale)) : foreach($sale as $row): ?>
+	          <tr>
+	            <td><?php echo $row->nomesala ?> </td>
+	            <td><?php echo $row->dipartimento; ?> </td>
+	            <td><?php echo $row->descrizione; ?> </td>
+	            <td><?php echo $row->numeroposti; ?></td>
+	            <td><a href="<?php echo base_url().'index.php/gestoreprenotazioni/prenota/'.$row->ID; ?>"><i class="fa fa-calendar-plus-o"></i>&nbsp;</a></td>
+	          </tr> 
+	          <?php endforeach; ?>
+	          <?php endif; ?>   
+	        </tbody>
+	      </table>
+							<!-- fine tabella -->
+						</div>	
     	</div>
 				</div>
 			</div>
