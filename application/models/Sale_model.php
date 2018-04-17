@@ -28,7 +28,6 @@ class Sale_model extends CI_Model {
 		if($q->num_rows() > 0){
 			return $q->result();
 		}
-
 	}
 
 }

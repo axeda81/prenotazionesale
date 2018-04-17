@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'form_validation', 'table');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'table', 'calendar');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Sale_model', 'Prenotazioni_model', 'Prenotazioniserviziaccessori_model', 'Serviziaccessori_model', 'Serviziaccessoripresenti_model');
+$autoload['model'] = array('Sale_model', 'Prenotazioni_model', 'Prenotazioniserviziaccessori_model', 'Serviziaccessori_model');
