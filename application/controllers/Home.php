@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 	public function faiPrenotazione() 
 	{
 		$data['sale'] = $this->Sale_model->elenco_sale();
-		$data['content'] = 'inizia_prenotazione';
+		$data['content'] = 'elenco_sale';
 		$this->load->view('includes/template', $data);		
 	}
 

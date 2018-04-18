@@ -1,6 +1,16 @@
+<!-- jQuery -->
+<script src="<?php echo base_url();?>vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="<?php echo base_url();?>vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<!-- FastClick -->
+<script src="<?php echo base_url();?>vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="<?php echo base_url();?>vendors/nprogress/nprogress.js"></script>
+<!-- FullCalendar -->
+<script src="<?php echo base_url();?>vendors/moment/min/moment.min.js"></script>
+<script src="<?php echo base_url();?>vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="<?php echo base_url();?>build/js/custom.min.js"></script>
 <!-- Datatables -->
 <script src="<?php echo base_url();?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -15,10 +25,3 @@
 <script src="<?php echo base_url();?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
 <script src="<?php echo base_url();?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 <script src="<?php echo base_url();?>vendors/jszip/dist/jszip.min.js"></script>
-<script src="<?php echo base_url();?>vendors/pdfmake/build/pdfmake.min.js"></script>
-<script src="<?php echo base_url();?>vendors/pdfmake/build/vfs_fonts.js"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="<?php echo base_url();?>build/js/custom.min.js"></script>
-<!-- iCheck -->
-<script src="<?php echo base_url();?>vendors/iCheck/icheck.min.js"></script>

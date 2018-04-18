@@ -8,7 +8,7 @@
     		<div class="col-md-4 col-xs-3">
 		    	<div class="x_title">
 		    		<?php if(isset($dati_sala)): ?>
-		    		<h4><?php echo $dati_sala[0]->nomesala ?></h4>
+		    		<h2><?php echo $dati_sala[0]->nomesala ?></h2>
 		    		<div class="clearfix"></div>
 		    	</div>
 		    	<div class="x_content">
@@ -23,7 +23,7 @@
 	          <td><?php echo $dati_sala[0]->descrizione; ?> </td>
 	         </tr>
 										<tr>
-	          <td><strong>Quanti posti a sedere ha </strong></td>
+	          <td><strong>Posti a sedere </strong></td>
 	          <td><?php echo $dati_sala[0]->numeroposti; ?> </td>
 	         </tr>	 
 										<tr>
@@ -42,7 +42,19 @@
 							</div> <!-- div class="x_content" -->
 						</div>
 						<div class="col-md-8 col-xs-9">
-							Qui va il calendario
+		    	<div class="x_title">
+		    		<h2>	Calendario <small>Fai click sulla data per aggiungere/modificare prenotazione.</small> </h2>
+		    		<div class="clearfix"></div>
+		    	</div>
+		    	<div class="x_content">
+
+		    			<?php echo $this->calendar->generate(); ?>
+
+
+
+
+
+		    	</div>
 						</div>
 					</div> <!-- div class="row" -->
 					<div class="row">
@@ -57,3 +69,77 @@
 		</div> <!-- div class="row" -->
 	</div> <!-- div class="" -->
 </div> <!-- div class="right_col" -->
+
+<!--
+ <script>
+            $(window).load(function () {
+
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+                var started;
+                var categoryClass;
+
+                var calendar = $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    selectable: true,
+                    selectHelper: true,
+                    select: function (start, end, allDay) {
+                        $('#fc_create').click();
+
+                        started = start;
+                        ended = end
+
+                        $(".antosubmit").on("click", function () {
+                            var title = $("#title").val();
+                            if (end) {
+                                ended = end
+                            }
+                            categoryClass = $("#event_type").val();
+
+                            if (title) {
+                                calendar.fullCalendar('renderEvent', {
+                                        title: title,
+                                        start: started,
+                                        end: end,
+                                        allDay: allDay
+                                    },
+                                    true // make the event "stick"
+                                );
+                            }
+                            $('#title').val('');
+                            calendar.fullCalendar('unselect');
+
+                            $('.antoclose').click();
+
+                            return false;
+                        });
+                    },
+                    eventClick: function (calEvent, jsEvent, view) {
+                        //alert(calEvent.title, jsEvent, view);
+
+                        $('#fc_edit').click();
+                        $('#title2').val(calEvent.title);
+                        categoryClass = $("#event_type").val();
+
+                        $(".antosubmit2").on("click", function () {
+                            calEvent.title = $("#title2").val();
+
+                            calendar.fullCalendar('updateEvent', calEvent);
+                            $('.antoclose2').click();
+                        });
+                        calendar.fullCalendar('unselect');
+                    },
+                    editable: true,
+                    events: [
+                        
+                ]
+                });
+            });
+        </script>
+-->

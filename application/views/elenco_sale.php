@@ -25,7 +25,7 @@
 	            <td><?php echo $row->dipartimento; ?> </td>
 	            <td><?php echo $row->descrizione; ?> </td>
 	            <td><?php echo $row->numeroposti; ?></td>
-	            <td><a href="<?php echo base_url().'index.php/gestoreprenotazioni/prenota/'.$row->ID; ?>" data-placement="right" data-toggle="tooltip" data-original-title="Prenota questa sala"><i class="fa fa-calendar-plus-o"></i>&nbsp;</a></td>
+	            <td><a href="<?php echo base_url().'index.php/gestoreprenotazioni/inizia_prenotazione/'.$row->ID; ?>" data-placement="right" data-toggle="tooltip" data-original-title="Prenota questa sala"><i class="fa fa-calendar-plus-o"></i>&nbsp;</a></td>
 	          </tr> 
 	          <?php endforeach; ?>
 	          <?php endif; ?>   
