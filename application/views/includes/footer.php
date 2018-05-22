@@ -9,6 +9,7 @@
 <!-- FullCalendar -->
 <script src="<?php echo base_url();?>vendors/moment/min/moment.min.js"></script>
 <script src="<?php echo base_url();?>vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="<?php echo base_url() ?>vendors/fullcalendar/dist/gcal.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url();?>build/js/custom.min.js"></script>
 <!-- Datatables -->

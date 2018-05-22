@@ -48,11 +48,8 @@
 		    	</div>
 		    	<div class="x_content">
 
-		    			<?php echo $this->calendar->generate(); ?>
-
-
-
-
+     			<div id="calendar">
+        </div>
 
 		    	</div>
 						</div>
@@ -70,76 +67,26 @@
 	</div> <!-- div class="" -->
 </div> <!-- div class="right_col" -->
 
-<!--
- <script>
-            $(window).load(function () {
 
-                var date = new Date();
-                var d = date.getDate();
-                var m = date.getMonth();
-                var y = date.getFullYear();
-                var started;
-                var categoryClass;
 
-                var calendar = $('#calendar').fullCalendar({
-                    header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'month,agendaWeek,agendaDay'
+<script type="text/javascript">
+$(document).ready(function() {
+$('#calendar').fullCalendar({
+    eventSources: [
+            {
+                color: '#18b9e6',   
+                textColor: '#000000',
+                events: [{
+                        title: 'Event 1',
+                        start: '2018-05-13'
                     },
-                    selectable: true,
-                    selectHelper: true,
-                    select: function (start, end, allDay) {
-                        $('#fc_create').click();
+                    {
+                        title: 'Event 2',
+                        start: '2018-05-19'
+                    }]
+            }
+        ]
+});
+ });
 
-                        started = start;
-                        ended = end
-
-                        $(".antosubmit").on("click", function () {
-                            var title = $("#title").val();
-                            if (end) {
-                                ended = end
-                            }
-                            categoryClass = $("#event_type").val();
-
-                            if (title) {
-                                calendar.fullCalendar('renderEvent', {
-                                        title: title,
-                                        start: started,
-                                        end: end,
-                                        allDay: allDay
-                                    },
-                                    true // make the event "stick"
-                                );
-                            }
-                            $('#title').val('');
-                            calendar.fullCalendar('unselect');
-
-                            $('.antoclose').click();
-
-                            return false;
-                        });
-                    },
-                    eventClick: function (calEvent, jsEvent, view) {
-                        //alert(calEvent.title, jsEvent, view);
-
-                        $('#fc_edit').click();
-                        $('#title2').val(calEvent.title);
-                        categoryClass = $("#event_type").val();
-
-                        $(".antosubmit2").on("click", function () {
-                            calEvent.title = $("#title2").val();
-
-                            calendar.fullCalendar('updateEvent', calEvent);
-                            $('.antoclose2').click();
-                        });
-                        calendar.fullCalendar('unselect');
-                    },
-                    editable: true,
-                    events: [
-                        
-                ]
-                });
-            });
-        </script>
--->
+</script>
