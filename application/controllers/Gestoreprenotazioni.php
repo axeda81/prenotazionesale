@@ -19,54 +19,55 @@ class Gestoreprenotazioni extends CI_Controller {
 							$this->load->view('includes/template', $data);	
      	}
 
-		$data['dati_sala'] = $this->Sale_model->dati_sala($id_sala);
-		$data['servizi'] = $this->Serviziaccessori_model->elenco_servizi($id_sala);
+     	else {
 
-		// Qui vanno aggiunti i dati del calendario per quella sala (da recuperare dal DB), da passare  
-		// alla view così inserisce un oggetto calendar nella pagina e lo riempie con questi dati 
+							$data['dati_sala'] = $this->Sale_model->dati_sala($id_sala);
+							$data['servizi'] = $this->Serviziaccessori_model->elenco_servizi($id_sala);
 
-		$data['content'] = 'prenota_sala';
-		$this->load->view('includes/template', $data);
+							// Qui vanno aggiunti i dati del calendario per quella sala (da recuperare dal DB), da passare  
+							// alla view così inserisce un oggetto calendar nella pagina e lo riempie con questi dati 
+
+
+					//		$this->visualizza_calendario();
+
+
+
+
+
+
+
+							$data['content'] = 'prenota_sala';
+							$this->load->view('includes/template', $data);
+
+     	}
 	}
 
- public function get_events()
- {
-     // inizio e fine range di ricerca eventi
-     $inizio = $this->input->get("inizio");
-     $fine = $this->input->get("fine");
+ 
+	function visualizza_calendario($year = null, $month = null) {
+		
+		if (!$year) {
+			$year = date('Y');
+		}
+		if (!$month) {
+			$month = date('m');
+		}
+		
+		$this->load->model('Prenotazioni_model');
+		
+		if ($day = $this->input->post('day')) {
+			$this->Prenotazioni_model->add_calendar_data(
+				"$year-$month-$day",
+				$this->input->post('data')
+			);
+		}
+		
+		$data['calendar'] = $this->Prenotazioni_model->generate($year, $month);
+		
+		$this->load->view('prenota_sala', $data);
 
-     $iniziodt = new DateTime('now'); // setup a local datetime
-     $iniziodt->setTimestamp($inizio); // Set the date based on timestamp
-     $inizio_format = $iniziodt->format('Y-m-d H:i:s');
 
-     $finedt = new DateTime('now'); // setup a local datetime
-     $finedt->setTimestamp($fine); // Set the date based on timestamp
-     $fine_format = $finedt->format('Y-m-d H:i:s');
 
-     $events = $this->prenotazioni_model->vedi_prenotazioni_in_range($inizio_format, $fine_format);
 
-     $data_events = array();
-
-     foreach($events->result() as $r) {
-
-         $data_events[] = array(
-             "id" => $r->ID,
-             "id_sala" => $r->ID_sala,
-             "inizio" => $r->inizio,
-             "fine" => $r->fine,             
-             "nome" => $r->nome,
-             "cognome" => $r->cognome,
-             "contatto" => $r->contatto,
-             "descrizioneevento" => $r->descrizioneevento
-
-         );
-     }
-
-     echo json_encode(array("events" => $data_events));
-     exit();
  }
-
-
-
 
 }

@@ -49,6 +49,9 @@
 		    	<div class="x_content">
 
      			<div id="calendar">
+
+          <?php echo $calendar; ?>
+
         </div>
 
 		    	</div>
@@ -67,26 +70,30 @@
 	</div> <!-- div class="" -->
 </div> <!-- div class="right_col" -->
 
-
-
 <script type="text/javascript">
-$(document).ready(function() {
-$('#calendar').fullCalendar({
-    eventSources: [
-            {
-                color: '#18b9e6',   
-                textColor: '#000000',
-                events: [{
-                        title: 'Event 1',
-                        start: '2018-05-13'
-                    },
-                    {
-                        title: 'Event 2',
-                        start: '2018-05-19'
-                    }]
-            }
-        ]
-});
+ 
+ $(document).ready(function() {
+  $('.calendar .day').click(function() {
+   day_num = $(this).find('.day_num').html();
+   day_data = prompt('Enter Stuff', $(this).find('.content').html());
+   if (day_data != null) {
+    
+    $.ajax({
+     url: window.location,
+     type: 'POST',
+     data: {
+      day: day_num,
+      data: day_data
+     },
+     success: function(msg) {
+      location.reload();
+     }      
+    });
+    
+   }
+   
+  });
+  
  });
-
+  
 </script>
